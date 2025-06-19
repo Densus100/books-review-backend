@@ -1,0 +1,32 @@
+docker compose up -d
+docker compose down
+docker compose up -d --build (fresh volume)
+
+npm run test (menjalankan script "test" yang ada di package.json)
+
+npm install express (instalasi express di folder)
+
+
+npm install -g nodemon (Ketika save index.js dia bisa auto restart)
+
+package.json
+form
+"dev": "node .",
+to
+"dev": "nodemon .",
+
+npm run dev
+
+
+https://insomnia.rest/
+
+
+npm install --save sequelize pg pg-hstore
+
+npm i dotenv
+
+
+https://sequelize.org/docs/v6/getting-started/
+
+
+npm i redis

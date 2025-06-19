@@ -1,0 +1,746 @@
+type: collection.insomnia.rest/5.0
+name: Training Nurosoft LMS
+meta:
+  id: wrk_e5ea22d76c394412806d9781d843c0f2
+  created: 1750326100043
+  modified: 1750326100043
+collection:
+  - name: Auth
+    meta:
+      id: fld_6ed6702a254d4a78bb9053312b8ad9d6
+      created: 1750326325086
+      modified: 1750326325086
+      sortKey: -1750326325086
+    children:
+      - url: "{{ base_url }}/login"
+        name: Login (admin)
+        meta:
+          id: req_3a07f64ed8434b0c860c0a931366eca6
+          created: 1750326325088
+          modified: 1750326325088
+          isPrivate: false
+          sortKey: -1750326325088
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "admin",
+              "password": "admin"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/me"
+        name: Me (get current user)
+        meta:
+          id: req_c04dca7319a947e9956fd863a8c259fe
+          created: 1750326325090
+          modified: 1750326325090
+          isPrivate: false
+          sortKey: -1750326325090
+        method: GET
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Users
+    meta:
+      id: fld_93f3756c74704a13b331d7f6ce990abd
+      created: 1750326325092
+      modified: 1750326325092
+      sortKey: -1750326325092
+    children:
+      - url: "{{ base_url }}/users"
+        name: List Users
+        meta:
+          id: req_e31ea1637ae54384869701f8e4a7e188
+          created: 1750326325095
+          modified: 1750326325095
+          isPrivate: false
+          sortKey: -1750326325095
+        method: GET
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/users"
+        name: Create User
+        meta:
+          id: req_8596b40f5d50422fbf80b4c362ac455c
+          created: 1750326325096
+          modified: 1750326325096
+          isPrivate: false
+          sortKey: -1750326325096
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "user1",
+              "password": "user1pass",
+              "email_address": "user1@example.com"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/users/1"
+        name: Get User by ID
+        meta:
+          id: req_27c25c1260284584ab2592b8deeb0134
+          created: 1750326325098
+          modified: 1750326325098
+          isPrivate: false
+          sortKey: -1750326325098
+        method: GET
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/users/1"
+        name: Update User
+        meta:
+          id: req_667fe2396c0d48b7b6907698a7d27053
+          created: 1750326325099
+          modified: 1750326325099
+          isPrivate: false
+          sortKey: -1750326325099
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "user1",
+              "password": "user1pass",
+              "email_address": "user1@example.com"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/users/1"
+        name: Delete User
+        meta:
+          id: req_de311b1c2ebc4a409040e050a6285fdc
+          created: 1750326325100
+          modified: 1750326325100
+          isPrivate: false
+          sortKey: -1750326325100
+        method: DELETE
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Roles
+    meta:
+      id: fld_1a22e991877d4af1967189857156b265
+      created: 1750326325102
+      modified: 1750326325102
+      sortKey: -1750326325102
+    children:
+      - url: "{{ base_url }}/roles"
+        name: List Roles
+        meta:
+          id: req_d77b1dc574104bc6b2b32e52ec2352b7
+          created: 1750326325103
+          modified: 1750326325103
+          isPrivate: false
+          sortKey: -1750326325103
+        method: GET
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/roles"
+        name: Create Role
+        meta:
+          id: req_6a8151f606994b48b8213d7926f9ac74
+          created: 1750326325104
+          modified: 1750326325104
+          isPrivate: false
+          sortKey: -1750326325104
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "editor",
+              "description": "Editor role",
+              "is_admin": false
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/roles/1"
+        name: Get Role by ID
+        meta:
+          id: req_5b919097bfe24dbe85dc68a3244a4b22
+          created: 1750326325107
+          modified: 1750326325107
+          isPrivate: false
+          sortKey: -1750326325107
+        method: GET
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/roles/1"
+        name: Update Role
+        meta:
+          id: req_f0f84be68fa54c048d150ace69ae2ff6
+          created: 1750326325110
+          modified: 1750326325110
+          isPrivate: false
+          sortKey: -1750326325110
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "editor",
+              "description": "Updated description",
+              "is_admin": false
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/roles/1"
+        name: Delete Role
+        meta:
+          id: req_7d714ba4a0df437baa0335e86bf2de19
+          created: 1750326325112
+          modified: 1750326325112
+          isPrivate: false
+          sortKey: -1750326325112
+        method: DELETE
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Books
+    meta:
+      id: fld_dd37b29516574386a44107347acb1282
+      created: 1750326325113
+      modified: 1750326325113
+      sortKey: -1750326325113
+    children:
+      - url: "{{ base_url }}/books"
+        name: List Active Books (public)
+        meta:
+          id: req_1060050231e14a87b980db24663f4082
+          created: 1750326325115
+          modified: 1750326325115
+          isPrivate: false
+          sortKey: -1750326325115
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/books/1"
+        name: Get Book by ID (public)
+        meta:
+          id: req_8e6c267c9b17493fad427389d4f4256f
+          created: 1750326325116
+          modified: 1750326325116
+          isPrivate: false
+          sortKey: -1750326325116
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/admin/books"
+        name: List All Books (admin)
+        meta:
+          id: req_5687a812dfd2474da03d6913c88116b0
+          created: 1750326325117
+          modified: 1750326325117
+          isPrivate: false
+          sortKey: -1750326325117
+        method: GET
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/admin/books/1"
+        name: Get Book by ID (admin)
+        meta:
+          id: req_881c1a600aba43829d7e1063fe9c41e8
+          created: 1750326325119
+          modified: 1750326325119
+          isPrivate: false
+          sortKey: -1750326325119
+        method: GET
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/books"
+        name: Create Book (admin)
+        meta:
+          id: req_6bc21ab2f15e4aa9b7092e0b068eac57
+          created: 1750326325121
+          modified: 1750326325121
+          isPrivate: false
+          sortKey: -1750326325121
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Book Title",
+              "description": "Book description",
+              "image_path": "cover.jpg",
+              "release_date": "2025-01-01",
+              "is_active": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/books/1"
+        name: Update Book (admin)
+        meta:
+          id: req_95a70a6759f74d499e475fd0580ce140
+          created: 1750326325122
+          modified: 1750326325122
+          isPrivate: false
+          sortKey: -1750326325122
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Book Title Updated",
+              "description": "Updated description",
+              "image_path": "cover2.jpg",
+              "release_date": "2025-02-01",
+              "is_active": false
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/books/1"
+        name: Delete Book (admin)
+        meta:
+          id: req_aa55fc1f740043d78e34beea28767ef8
+          created: 1750326325123
+          modified: 1750326325123
+          isPrivate: false
+          sortKey: -1750326325123
+        method: DELETE
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/books/1/reviews"
+        name: Get Reviews by Book ID (public)
+        meta:
+          id: req_b0eec3e1e89a46d4aa484feb154f7143
+          created: 1750326325125
+          modified: 1750326325125
+          isPrivate: false
+          sortKey: -1750326325125
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Reviews
+    meta:
+      id: fld_af00116f1dd847dc822bfd93f9fc76d2
+      created: 1750326325126
+      modified: 1750326325126
+      sortKey: -1750326325126
+    children:
+      - url: "{{ base_url }}/reviews"
+        name: List All Reviews
+        meta:
+          id: req_80bd2e776a1a4849886d1a97aca9579f
+          created: 1750326325127
+          modified: 1750326325127
+          isPrivate: false
+          sortKey: -1750326325127
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/reviews/1"
+        name: Get Review by ID
+        meta:
+          id: req_354dbc848a51473ebda38281ed7c8520
+          created: 1750326325128
+          modified: 1750326325128
+          isPrivate: false
+          sortKey: -1750326325128
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/reviews"
+        name: Create Review
+        meta:
+          id: req_9cca62fe9559466d947bc39a4fa63cdb
+          created: 1750326325129
+          modified: 1750326325129
+          isPrivate: false
+          sortKey: -1750326325129
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "rating": 5,
+              "comment": "Great book!",
+              "bookId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/reviews/1"
+        name: Update Review
+        meta:
+          id: req_052cc6e3cc214856bdd7d951b1d75f5c
+          created: 1750326325131
+          modified: 1750326325131
+          isPrivate: false
+          sortKey: -1750326325131
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "rating": 4,
+              "comment": "Updated review.",
+              "active": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/reviews/1"
+        name: Delete Review
+        meta:
+          id: req_71eabeb2f28f4057a62e8dbf605ef32e
+          created: 1750326325134
+          modified: 1750326325134
+          isPrivate: false
+          sortKey: -1750326325134
+        method: DELETE
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Favorites
+    meta:
+      id: fld_aa63b45328af43a59e21d3c82c7c6bdd
+      created: 1750326325137
+      modified: 1750326325137
+      sortKey: -1750326325137
+    children:
+      - url: "{{ base_url }}/favorites"
+        name: List Favorites (user)
+        meta:
+          id: req_4c6c763609154925b868d2fb1af07af8
+          created: 1750326325138
+          modified: 1750326325138
+          isPrivate: false
+          sortKey: -1750326325138
+        method: GET
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/admin/favorites"
+        name: List All Favorites (admin)
+        meta:
+          id: req_3f168b1e438c41e2bd6f4240fb6f8d16
+          created: 1750326325141
+          modified: 1750326325141
+          isPrivate: false
+          sortKey: -1750326325141
+        method: GET
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/admin/favorites/book/1"
+        name: List Favorites by Book (admin)
+        meta:
+          id: req_8ec6c46d50cc4a0bb9cb2374f16e29f3
+          created: 1750326325143
+          modified: 1750326325143
+          isPrivate: false
+          sortKey: -1750326325143
+        method: GET
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/favorites"
+        name: Add Favorite
+        meta:
+          id: req_9fb1876c3e524424bfc0649a0fc68be2
+          created: 1750326325144
+          modified: 1750326325144
+          isPrivate: false
+          sortKey: -1750326325144
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "bookId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ base_url }}/favorites/1"
+        name: Remove Favorite
+        meta:
+          id: req_bb53fdcd4aaf4d3fbf2e2596ceb00f03
+          created: 1750326325147
+          modified: 1750326325147
+          isPrivate: false
+          sortKey: -1750326325147
+        method: DELETE
+        headers:
+          - name: Authorization
+            value: Bearer {{ admin_token }}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_150246c1013e3567f8a184e01d3573a0ed4c3df3
+    created: 1750326100048
+    modified: 1750326100048
+environments:
+  name: Base Environment
+  meta:
+    id: env_150246c1013e3567f8a184e01d3573a0ed4c3df3
+    created: 1750326100046
+    modified: 1750326380729
+    isPrivate: false
+  data:
+    base_url: http://localhost:3000/api/v1
