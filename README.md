@@ -84,7 +84,7 @@ DB_POSTGRES_PORT=5432
 
 # Redis Configuration
 DB_REDIS_HOST=localhost
-DB_REDIS_PORT=
+DB_REDIS_PORT=6379
 ```
 
 ### Running the Application
