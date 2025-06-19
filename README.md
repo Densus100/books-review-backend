@@ -74,10 +74,17 @@ A Node.js backend API for managing books, user reviews, favorites, authenticatio
 Copy `.env.example` to `.env` and fill in your configuration:
 
 ```env
-PORT=3000
-DATABASE_URL=postgres://user:password@localhost:5432/booksdb
-REDIS_URL=redis://localhost:6379
-JWT_SECRET=your_jwt_secret
+
+# PostgreSQL Database Configuration
+DB_POSTGRES_HOST=localhost
+DB_POSTGRES_USERNAME=postgres
+DB_POSTGRES_PASSWORD=postgres
+DB_POSTGRES_DBNAME=training_postgres
+DB_POSTGRES_PORT=5432
+
+# Redis Configuration
+DB_REDIS_HOST=localhost
+DB_REDIS_PORT=
 ```
 
 ### Running the Application
